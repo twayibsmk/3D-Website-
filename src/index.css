@@ -80,3 +80,66 @@ div[style*="position: absolute"][style*="bottom: 16px"][style*="right: 16px"] {
 html {
   scroll-behavior: smooth;
 }
+
+/* Navbar Styles */
+.navbar-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(3,3,3,0.8), transparent);
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 2rem;
+  pointer-events: auto;
+}
+
+.navbar-links-container {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-top {
+    flex-direction: column;
+    padding: 1.5rem 1rem 1rem 1rem;
+    background: linear-gradient(to bottom, rgba(3,3,3,0.95), transparent);
+  }
+  
+  .navbar-logo {
+    position: relative;
+    left: 0;
+    margin-bottom: 1.5rem;
+  }
+  
+  .navbar-links-container {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+}

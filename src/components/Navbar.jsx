@@ -15,30 +15,23 @@ export default function Navbar() {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      style={{
-        position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 50,
-        padding: '2rem', display: 'flex', justifyContent: 'center',
-        alignItems: 'center', pointerEvents: 'none',
-        background: 'linear-gradient(to bottom, rgba(3,3,3,0.8), transparent)'
-      }}
+      className="navbar-top"
     >
       {/* Absolute positioned Logo */}
-      <div style={{ position: 'absolute', left: '2rem', pointerEvents: 'auto' }}>
+      <div className="navbar-logo">
         <Link to="/" style={{ color: 'white', fontSize: '1rem', fontWeight: 'bold', letterSpacing: '0.2em', textDecoration: 'none' }}>
           AETHERIS<span style={{ color: 'var(--accent-cyan)' }}>.</span>
         </Link>
       </div>
 
-      <nav style={{ pointerEvents: 'auto', display: 'flex', alignItems: 'center', gap: '3rem' }}>
+      <nav className="navbar-links-container">
         {links.map((link) => (
           <Link 
             key={link.path}
             to={link.path}
+            className="nav-link"
             style={{ 
-              position: 'relative', fontSize: '0.8rem', textTransform: 'uppercase',
-              fontWeight: 500, letterSpacing: '0.15em', transition: 'color 0.3s',
-              color: location.pathname === link.path ? 'var(--text-primary)' : 'var(--text-secondary)',
-              textDecoration: 'none'
+              color: location.pathname === link.path ? 'var(--text-primary)' : 'var(--text-secondary)'
             }}
           >
             {link.name}
