@@ -35,7 +35,7 @@ export default function Home() {
               className="heading-hero" 
               style={{ marginBottom: '1rem', textShadow: '0 0 30px rgba(0,0,0,0.8)' }}
             >
-              AETHERIS: <br/>ARCHITECTING AUTONOMY.
+              AETHERIS: ARCHITECTING AUTONOMY.
             </motion.h1>
             <p className="subhead" style={{ textShadow: '0 0 20px rgba(0,0,0,0.8)' }}>
               Bespoke, self-executing AI infrastructure that runs your company with surgical precision. Zero intervention required.

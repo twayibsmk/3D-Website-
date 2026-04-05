@@ -49,11 +49,11 @@ export default function Showcase() {
       }}>
         
         {/* Navigation Buttons */}
-        <button onClick={prevSlide} style={{ position: 'absolute', left: '10vw', zIndex: 20, background: 'none', border: '1px solid var(--glass-border)', borderRadius: '50%', padding: '1rem', color: 'white', cursor: 'pointer', backdropFilter: 'blur(10px)' }}>
+        <button onClick={prevSlide} style={{ position: 'absolute', left: 'clamp(10px, 5vw, 10vw)', zIndex: 20, background: 'none', border: '1px solid var(--glass-border)', borderRadius: '50%', padding: '1rem', color: 'white', cursor: 'pointer', backdropFilter: 'blur(10px)' }}>
           <ChevronLeft size={24} />
         </button>
         
-        <button onClick={nextSlide} style={{ position: 'absolute', right: '10vw', zIndex: 20, background: 'none', border: '1px solid var(--glass-border)', borderRadius: '50%', padding: '1rem', color: 'white', cursor: 'pointer', backdropFilter: 'blur(10px)' }}>
+        <button onClick={nextSlide} style={{ position: 'absolute', right: 'clamp(10px, 5vw, 10vw)', zIndex: 20, background: 'none', border: '1px solid var(--glass-border)', borderRadius: '50%', padding: '1rem', color: 'white', cursor: 'pointer', backdropFilter: 'blur(10px)' }}>
           <ChevronRight size={24} />
         </button>
 
@@ -102,7 +102,7 @@ export default function Showcase() {
             </div>
 
             {/* Info Card */}
-            <div className="glass-panel" style={{ marginTop: '2rem', padding: '2rem', textAlign: 'center', width: '350px' }}>
+            <div className="glass-panel" style={{ marginTop: '2rem', padding: '2rem', textAlign: 'center', width: '100%', maxWidth: '350px' }}>
               <h3 style={{ color: projects[currentIndex].color, marginBottom: '0.5rem', fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                 {projects[currentIndex].title}
               </h3>

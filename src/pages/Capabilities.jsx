@@ -90,7 +90,7 @@ export default function Capabilities() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
-      style={{ padding: '20vh 10vw 10vh', display: 'flex', flexDirection: 'column' }}
+      style={{ padding: '15vh 5vw 10vh', display: 'flex', flexDirection: 'column' }}
     >
       <div style={{ textAlign: 'center', marginBottom: '10vh' }}>
         <h2 className="heading-hero" style={{ fontSize: '3.5rem' }}>Core Capabilities</h2>

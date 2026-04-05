@@ -38,7 +38,7 @@ export default function Engine() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
-      style={{ overflow: 'hidden', background: 'radial-gradient(circle at center, rgba(10,10,10,0.8), #000)' }}
+      style={{ overflowX: 'hidden', minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'radial-gradient(circle at center, rgba(10,10,10,0.8), #000)', position: 'relative' }}
     >
       {/* Cursor Follower */}
       <motion.div 
@@ -51,15 +51,17 @@ export default function Engine() {
         }}
       />
 
-      <div style={{ position: 'absolute', top: '15vh', width: '100%', textAlign: 'center', zIndex: 20, pointerEvents: 'none' }}>
+      <div style={{ position: 'relative', marginTop: '15vh', width: '100%', textAlign: 'center', zIndex: 20, pointerEvents: 'none' }}>
         <h2 className="heading-hero" style={{ fontSize: '3rem' }}>The Engine</h2>
-        <p className="subhead" style={{ margin: '1rem auto' }}>Powered by the Aetheris Neural Core. Real-time processing at scale.</p>
+        <p className="subhead" style={{ margin: '1rem auto', padding: '0 20px' }}>Powered by the Aetheris Neural Core. Real-time processing at scale.</p>
       </div>
+
+      <div style={{ flexGrow: 1 }} />
 
       {/* Interactive Floating Detail Cards */}
       <div style={{
-          position: 'absolute', bottom: '5vh', width: '100%', zIndex: 30, padding: '0 5vw',
-          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem'
+          position: 'relative', width: '100%', zIndex: 30, padding: '5vh 5vw', marginTop: '20vh',
+          display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem'
       }}>
         {cards.map((card, i) => (
           <motion.div 
@@ -82,9 +84,9 @@ export default function Engine() {
 
       {/* Isometric 3D Environment */}
       <div style={{
-        position: 'absolute', top: '-10vh', left: 0, width: '100%', height: '120vh',
+        position: 'fixed', top: '-10vh', left: 0, width: '100%', height: '120vh',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        perspective: '1200px'
+        perspective: '1200px', zIndex: 0, pointerEvents: 'none'
       }}>
         <motion.div 
           initial={{ rotateX: 70, rotateZ: -45, scale: 0.8 }}
