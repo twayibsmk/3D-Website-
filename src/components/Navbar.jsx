@@ -1,10 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
+
+  // Programmatically strictly unmount desktop links on mobile
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth > 1024);
+    
+    // Check initially
+    handleResize();
+    
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const links = [
     { name: 'Blueprint', path: '/' },
@@ -27,33 +40,35 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Links */}
-        <nav className="navbar-links-container desktop-nav">
-          {links.map((link) => (
-            <Link 
-              key={link.path}
-              to={link.path}
-              className="nav-link"
-              style={{ 
-                color: location.pathname === link.path ? 'var(--text-primary)' : 'var(--text-secondary)'
-              }}
-            >
-              {link.name}
-              {location.pathname === link.path && (
-                <motion.div
-                  layoutId="nav-line"
-                  style={{ 
-                    position: 'absolute', bottom: '-4px', left: 0, right: 0, height: '1px',
-                    backgroundColor: 'var(--accent-cyan)'
-                  }}
-                />
-              )}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Links (Conditionally rendered to bypass CSS specificity issues) */}
+        {isDesktop && (
+          <nav className="navbar-links-container desktop-nav">
+            {links.map((link) => (
+              <Link 
+                key={link.path}
+                to={link.path}
+                className="nav-link"
+                style={{ 
+                  color: location.pathname === link.path ? 'var(--text-primary)' : 'var(--text-secondary)'
+                }}
+              >
+                {link.name}
+                {location.pathname === link.path && (
+                  <motion.div
+                    layoutId="nav-line"
+                    style={{ 
+                      position: 'absolute', bottom: '-4px', left: 0, right: 0, height: '1px',
+                      backgroundColor: 'var(--accent-cyan)'
+                    }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+        )}
 
         {/* Hamburger Icon */}
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <div className="hamburger" onClick={() => setIsOpen(!isOpen)} style={{ display: isDesktop ? 'none' : 'flex' }}>
           <motion.div 
             animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }} 
             className="burger-line"
