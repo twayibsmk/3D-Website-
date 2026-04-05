@@ -1,0 +1,51 @@
+version: "2"
+type: frontend
+tech_stack:
+  - React
+  - Vite
+  - Framer Motion
+  - Spline 3D (@splinetool/react-spline)
+routes:
+  - path: /
+    file: src/pages/Home.jsx
+    auth_required: false
+    description: Homepage featuring Spline 3D hero scene
+  - path: /capabilities
+    file: src/pages/Capabilities.jsx
+    auth_required: false
+    description: Showcases AI capabilities
+  - path: /engine
+    file: src/pages/Engine.jsx
+    auth_required: false
+    description: Showcases the Engine using scrollytelling
+features:
+  - name: Navigation
+    description: Global navigation menu with framer motion routing
+    files:
+      - src/components/Navbar.jsx
+    entry_route: /
+    user_interactions:
+      - Click navigation links (Home, Capabilities, Engine)
+      - View smooth page transition
+    api_calls: []
+    auth_required: false
+  - name: 3D Hero Scene
+    description: Interactive splinetool 3D scene on homepage
+    files:
+      - src/pages/Home.jsx
+    entry_route: /
+    user_interactions:
+      - View 3D models load
+      - Scroll and interact with the 3D scene
+    api_calls: []
+    auth_required: false
+  - name: Engine Scrollytelling
+    description: High-end scroll-linked animation page
+    files:
+      - src/pages/Engine.jsx
+    entry_route: /engine
+    user_interactions:
+      - Scroll down page to see animations trigger
+    api_calls: []
+    auth_required: false
+known_limitations: []

@@ -1,0 +1,329 @@
+[
+  {
+    "id": "TC001",
+    "title": "Engine scrollytelling triggers animations and overlay changes with incremental scroll",
+    "description": "Verifies incremental scrolling on Engine causes observable animation progress and synchronized overlay content changes.",
+    "category": "Engine Scrollytelling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /engine"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the page to finish initial render"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down by a small amount"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down by another small amount"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the visual animation/canvas output changes as scroll progresses"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify overlay text/content changes as the user scrolls through sections"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Navigate from Home to Capabilities via global navigation",
+    "description": "Verifies a user can move from Home to Capabilities and the Capabilities page renders after a smooth transition.",
+    "category": "Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to Capabilities"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the Capabilities page and Capabilities content is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page transition completes without a blank or partially rendered page state"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Homepage 3D hero loads and remains interactive on desktop",
+    "description": "Verifies the homepage 3D hero scene loads, occupies the hero area, and responds to basic user interaction and scroll.",
+    "category": "3D Hero Scene",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the hero section to finish initial render"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down slightly"
+      },
+      {
+        "type": "action",
+        "description": "Scroll back to the top"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a 3D/canvas hero scene is displayed in the hero area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero scene remains present and does not disappear after scrolling"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Engine scrollytelling remains smooth through full scroll length and back up",
+    "description": "Verifies the Engine experience continues updating to the bottom and remains synchronized when scrolling back upward.",
+    "category": "Engine Scrollytelling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /engine"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the page to finish initial render"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the bottom of the page"
+      },
+      {
+        "type": "action",
+        "description": "Scroll back to the top of the page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the animation/canvas remains visible and updates throughout the full scroll range"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify overlay content remains present and does not desynchronize into a blank state during reverse scrolling"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Mobile drawer navigation to Capabilities closes drawer and transitions",
+    "description": "Verifies on a mobile viewport the navigation drawer opens, route changes to Capabilities, and the drawer closes after navigation.",
+    "category": "Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set viewport to a mobile size under 768px wide"
+      },
+      {
+        "type": "action",
+        "description": "Open the navigation menu"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to Capabilities"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the Capabilities page and the navigation drawer is closed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Capabilities page is fully rendered after the transition"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Homepage 3D hero scales and remains usable at tablet viewport",
+    "description": "Verifies the 3D hero scene scales to a 768px-wide viewport without clipping or overlapping core content.",
+    "category": "3D Hero Scene",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set viewport to 768px by 1024px"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the hero section to finish initial render"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a 3D/canvas hero scene is visible and fits within the viewport without clipping key areas"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the navigation and hero content are not overlapping in a way that blocks interaction"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Homepage 3D hero does not overlap navigation at mobile viewport",
+    "description": "Verifies the homepage hero and navigation remain usable on a small mobile viewport without overlapping or blocking primary controls.",
+    "category": "3D Hero Scene",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set viewport to 375px by 667px"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the hero section to finish initial render"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero area is displayed without obscuring the global navigation controls"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page remains scrollable and the hero remains visible during initial scroll"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Direct-entry to Engine initializes scrollytelling",
+    "description": "Verifies loading the Engine route directly initializes the scrollytelling experience and displays the canvas and overlay content.",
+    "category": "Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /engine"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the page to finish initial render"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Engine scrollytelling layout is displayed with a visible animation/canvas area"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify overlay text/content is present on the page"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC009",
+    "title": "Direct-entry to Capabilities renders correctly",
+    "description": "Verifies loading the Capabilities route directly renders the correct page content without requiring prior navigation.",
+    "category": "Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /capabilities"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the Capabilities page content is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify global navigation is present and the page is interactable"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC010",
+    "title": "Rapid route switching does not leave blank or stuck state",
+    "description": "Verifies rapid navigation across routes does not result in a blank screen and the final route renders correctly with transitions completing.",
+    "category": "Navigation",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to Engine"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to Capabilities"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation link to Home"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the Home page and the hero section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page is fully rendered without missing primary content areas"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC011",
+    "title": "Engine handles fast, erratic scrolling without losing render",
+    "description": "Verifies rapid scroll jumps do not cause the Engine canvas or overlays to disappear or leave a torn/blank state.",
+    "category": "Engine Scrollytelling",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /engine"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the page to finish initial render"
+      },
+      {
+        "type": "action",
+        "description": "Scroll down quickly by a large amount"
+      },
+      {
+        "type": "action",
+        "description": "Scroll up quickly by a large amount"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the animation/canvas area is still displayed after the rapid scrolling"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify overlay content is still displayed and the page remains interactable"
+      }
+    ],
+    "priority": "Low"
+  }
+]
